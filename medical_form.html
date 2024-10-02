@@ -1,7 +1,7 @@
 <!-- Program name: Medical_Form.html
 Author: Maryann Tran
 Date created: 9/9
-Date last edited: The date you submitted it
+Date last edited: 10/2
 Version: 1.0 -->
 
 <!DOCTYPE html>
@@ -12,7 +12,7 @@ Version: 1.0 -->
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <title>BooBoo? Medical</title> 
         <link rel="stylesheet" href="./Medical_Form.css">
-        <script src="./Medical_Form.js"></script>
+        <script src="./medical_form.js"></script>
     </head>
     <body>
 <!-- banner -->
@@ -37,7 +37,7 @@ Version: 1.0 -->
     <div class="outerForm">
         <div class = "medicalForm">
     
-    <form name= 'medicalForm' action="./Thank_You.html" onSubmit="return inputValidator();">
+    <form name= "medicalForm" id = "medicalForm" action="./Thank_You.html" onSubmit="return inputValidator();">
 
     <div class = "separator">
         <h2>Patient Information</h2>
@@ -49,17 +49,17 @@ Version: 1.0 -->
             <td colspan="1">
                 <!-- first name -->
                 <label for="fname">First name: <i style="color:red">*</i></label><br>
-                <input type="text" id="fname" name="fname" maxlength="30" placeholder="Enter First Name"/required>
+                <input type="text" id="fname" name="fname" pattern ="^[a-zA-Z](?:[ '.\-a-zA-Z]*[a-zA-Z])?$" maxlength="30" placeholder="Enter First Name"/required>
             </td>
             <td colspan="1">
                 <!-- middle initial -->
                 <label for="minit">Middle Initial: </label><br>
-                <input type="text" id="minit" name="minit" maxlength="1" placeholder="Enter Middle Initial">
+                <input type="text" id="minit" name="minit" pattern = "^([A-Z])?$" maxlength="1" placeholder="Enter Middle Initial">
             </td>
             <td colspan="1">
                  <!-- last name -->
                 <label for="lname">Last name: <i style="color:red">*</i></label><br>
-                <input type="text" id="lname" name="lname" maxlength="30" placeholder="Enter Last Name" /required>
+                <input type="text" id="lname" name="lname" pattern = "([A-Za-z2-5\-\_]+)" maxlength="30" placeholder="Enter Last Name" /required>
             </td>
         <!-- user DOB & gender -->
         </tr>
@@ -104,14 +104,14 @@ Version: 1.0 -->
             </td>
              <td colspan="2">
                 <label for="email">Email: <i style="color:red">*</i></label><br>
-                <input type="email" class="email" id="email" name="email" placeholder="Enter Email"/required> 
+                <input type="email" class="email" id="email" name="email" pattern = "^[^@]+@[^@]+\.[^@]+$" placeholder="Enter Email"/required> 
             </td>
         </tr>
         <!-- phone number -->
         <tr>
             <td colspan="3">
                 <label for="phoneNumber">Phone Number: <i style="color:red">*</i></label><br>
-                <input class="phoneNumber" type="tel" id="phoneNumber" name="phoneNumber" placeholder="xxx-xxx-xxxx" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
+                <input class="phoneNumber" type="tel" id="phoneNumber" name="phoneNumber" pattern = "^[1-9]\d{2}-\d{3}-\d{4}" placeholder="xxx-xxx-xxxx" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
             </td>
         </tr>
         <!-- address line 1 -->
@@ -295,6 +295,7 @@ Version: 1.0 -->
         <!-- submit and reset buttons -->
         <div class="buttons">
             <input type="submit" value="Submit" style="color: white; background-color: #1C2F5A;">
+            <input type="button" value="Review" onclick = "getdata()" style="color: white; background-color: #1C2F5A;">
             <input type="reset" value="Reset" style="color: white; background-color: #1C2F5A">
         </div>
        
